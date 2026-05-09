@@ -1,0 +1,364 @@
+:root {
+    --primary-color: #28a745;
+    --primary-hover: #218838;
+    --danger-color: #ff4d4f;
+    --danger-hover: #ff7875;
+    --accent-color: #f39c12;
+    --bg-gradient: linear-gradient(-45deg, #0035ad, #e81123, #0035ad, #e81123);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    background: var(--bg-gradient);
+    background-size: 400% 400%;
+    animation: animateGradient 15s ease infinite;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+}
+
+@keyframes animateGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    padding: 2.5rem;
+    width: 450px;
+    margin-bottom: 50px;
+    color: white;
+    border: 2px solid rgba(40, 167, 69, 0.5); /* Borde verde semi-transparente */
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(40, 167, 69, 0.4), 
+                inset 0 0 15px rgba(40, 167, 69, 0.2); /* Brillo de neón */
+    background: rgba(255, 255, 255, 0.05); /* Efecto de cristal muy sutil */
+    backdrop-filter: blur(8px); /* Desfoque del fondo animado */
+}
+.top-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.logo-text {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    letter-spacing: 6px;
+}
+.logo-underline {
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 5px auto;
+}
+h1 { text-align: center; color: white; }
+.inputs { display: flex; gap: 10px; margin-bottom: 20px; }
+input {
+    padding: 8px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover { background-color: var(--primary-hover); }
+ul { list-style: none; padding: 0; }
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.item-count {
+    background: var(--primary-color);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.cart-item-img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 10px;
+}
+
+.qty-btn {
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.qty-btn:hover { background-color: #5a6268; }
+
+.qty-value {
+    font-weight: bold;
+    min-width: 15px;
+    text-align: center;
+}
+
+.delete-item-btn {
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.delete-item-btn:hover {
+    background: var(--danger-hover);
+}
+.footer { 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 15px; 
+    margin-top: 30px; 
+    padding-top: 20px; 
+    border-top: 2px dashed var(--primary-color); 
+}
+.market-icon { font-size: 3rem; }
+.price-details { text-align: left; }
+.brand-name { 
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 0.8rem; 
+    letter-spacing: 2px; 
+}
+.total-amount { 
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos de la Estantería/Galería */
+.market-shelf {
+    margin-top: 40px;
+    text-align: center;
+}
+.market-shelf h3 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.shelf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 15px;
+}
+.shelf-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: transform 0.2s;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+.shelf-item img { 
+    width: 75px; 
+    height: 75px; 
+    margin-bottom: 8px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    border: 2px solid white;
+}
+.shelf-item p { font-size: 0.7rem; color: white; font-weight: bold; margin: 0; }
+.shelf-item span { font-size: 0.8rem; color: var(--primary-color); font-weight: 900; }
+.shelf-item:hover { transform: translateY(-10px) scale(1.15); }
+
+.shelf-item.selected img {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.7);
+}
+
+/* Efecto +1 Volando */
+.floating-plus-one {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #28a745;
+    font-weight: 900;
+    font-size: 1.5rem;
+    pointer-events: none;
+    animation: flyUp 0.8s ease-out forwards;
+    z-index: 10;
+    text-shadow: 0 0 5px white;
+}
+
+@keyframes flyUp {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    100% { transform: translate(-50%, -60px); opacity: 0; }
+}
+
+.cart-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#checkoutBtn, #clearCartBtn, #devModeBtn {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+#devModeBtn { display: none; background-color: #f39c12; box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3); }
+#devModeBtn:hover { background-color: #e67e22; }
+
+#checkoutBtn { background-color: #007bff; box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); }
+#checkoutBtn:hover { background-color: #0056b3; }
+
+#clearCartBtn { background-color: #dc3545; box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3); }
+#clearCartBtn:hover { background-color: #c82333; }
+
+@media (max-width: 700px) {
+    body {
+        padding-top: 20px;
+    }
+
+    .container {
+        width: min(95vw, 520px);
+        padding: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .inputs {
+        flex-direction: column;
+    }
+
+    .inputs input,
+    .inputs button {
+        width: 100%;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .item-info {
+        margin-top: 5px;
+    }
+
+    .quantity-controls {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .price-details {
+        width: 100%;
+    }
+
+    .cart-actions {
+        flex-direction: column;
+    }
+
+    #checkoutBtn,
+    #clearCartBtn,
+    #devModeBtn {
+        width: 100%;
+    }
+
+    .shelf-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .shelf-item img {
+        width: 100%;
+        height: auto;
+        max-width: 120px;
+    }
+}
+
+/* Estilos para el estado de guardado */
+.save-status {
+    text-align: center;
+    font-size: 0.8rem;
+    height: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.save-status.loading { color: #f39c12; }
+.save-status.success { color: #2ecc71; }
+.save-status.error { color: #e74c3c; }
+
+/* Efecto de pulsación para el botón agregar */
+@keyframes pulse-green {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 0 15px #28a745; }
+    100% { transform: scale(1); }
+}
+.pulse {
+    animation: pulse-green 0.4s ease-out;
+}
