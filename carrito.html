@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras Interactivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="top-logo">
+                <div class="logo-text">super loco</div>
+                <div class="logo-underline"></div>
+            </div>
+            <h1>Carrito de Compras</h1>
+            <div id="saveStatus" class="save-status"></div>
+        </header>
+
+        <main>
+            <section id="add-product-form">
+                <form id="productForm" class="inputs">
+                    <input type="text" id="productName" placeholder="Producto nuevo..." required>
+                    <input type="number" id="productPrice" placeholder="Precio" step="0.01" min="100" max="70000" required>
+                    <button type="submit" id="addBtn">+</button>
+                </form>
+            </section>
+
+            <section id="cart-section">
+                <div class="cart-header">
+                    <h3>Tu Pedido</h3>
+                    <span id="itemCount" class="item-count">0 productos</span>
+                </div>
+                <ul id="cartList" class="cart-list-container"></ul>
+                
+                <div class="footer">
+                    <div class="market-icon">🛒</div>
+                    <div class="price-details">
+                        <div class="brand-name">TOTAL ESTIMADO</div>
+                        <div id="totalPrice" class="total-amount">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="cart-actions">
+                    <button id="checkoutBtn">Finalizar</button>
+                    <button id="clearCartBtn">Vaciar</button>
+                    <button id="devModeBtn">Test</button>
+                </div>
+            </section>
+
+            <section id="product-shelf" class="market-shelf">
+                <h3>Góndola de Productos</h3>
+                <div id="shelfGrid" class="shelf-grid"></div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
